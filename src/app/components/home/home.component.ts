@@ -12,7 +12,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.serverService.getData('tin-moi-nhat.rss');
-    console.log(this.data);
   }
-
 }

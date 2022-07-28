@@ -72,9 +72,11 @@ h6 {
 }
 .enable-sticky {
   position: fixed;
+  z-index: 1000;
   padding: 4px 0;
   top: 0;
   left: 0;
   right: 0;
   transition: all 0.4s step-start;
+  background-color: #0b3d91;
 }

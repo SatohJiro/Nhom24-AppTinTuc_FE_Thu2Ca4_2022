@@ -8,17 +8,8 @@
         <li class="hot-news__icon">
           <i class="fas fa-fire"></i>
         </li>
-        <li class="hot-news__item">
-          <a href="" class="hot-news__link">#Xung đột Nga - Ukraine</a>
-        </li>
-        <li class="hot-news__item">
-          <a href="" class="hot-news__link">#Xung đột Nga - Ukraine</a>
-        </li>
-        <li class="hot-news__item">
-          <a href="" class="hot-news__link">#Xung đột Nga - Ukraine</a>
-        </li>
-        <li class="hot-news__item">
-          <a href="" class="hot-news__link">#Xung đột Nga - Ukraine</a>
+        <li class="hot-news__item" *ngFor="let tag of hotNewsTags">
+          <a [href]="tag.link" class="hot-news__link" [title]="tag.title">{{tag.name}}</a>
         </li>
       </ul>
     </div>
@@ -44,21 +35,17 @@
             <mdb-tab title="Tin nóng">
               <ng-template mdbTabContent>
                 <ul class="list-news-thumb__list">
-                  <ng-container *ngFor="let item of data; first as isFirst">
-                    <ng-template [ngIf]="!isFirst">
-                      <li class="list-news-thumb__item" >
-                        <a [href]="item.link" class="list-news-thumb__link" [title]="item.title">{{item.title}}</a>
-                      </li>
-                    </ng-template>
-                  </ng-container>
+                  <li class="list-news-thumb__item" *ngFor="let item of data" >
+                    <a [href]="item.link" class="list-news-thumb__link" [title]="item.title">{{item.title}}</a>
+                  </li>
                 </ul>
               </ng-template>
             </mdb-tab>
             <mdb-tab title="Tin mới">
               <ng-template mdbTabContent>
                 <ul class="list-news-thumb__list">
-                  <li class="list-news-thumb__item" *ngFor="let item of data; first as isFirst">
-                    <a *ngIf="!isFirst" [href]="item.link" class="list-news-thumb__link" [title]="item.title">{{item.title}}</a>
+                  <li class="list-news-thumb__item" *ngFor="let item of hotNewsData" >
+                    <a [href]="item.link" class="list-news-thumb__link" [title]="item.title">{{item.title}}</a>
                   </li>
                 </ul>
               </ng-template>

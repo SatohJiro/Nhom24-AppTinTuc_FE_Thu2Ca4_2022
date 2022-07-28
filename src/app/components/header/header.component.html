@@ -35,20 +35,12 @@
       </div>
       <div class="header__topics">
         <ul class="topics__list">
-          <li class="topics__item">
-            <a href="" class="topics__link">Tìm việc - tuyển người <i class="fas fa-search-dollar topics__icon"></i></a></li>
-          <li class="topics__item">
-            <a href="" class="topics__link">Lý tưởng sống <i class="fas fa-search-dollar topics__icon"></i></a></li>
-          <li class="topics__item">
-            <a href="" class="topics__link">Lý tưởng sống <i class="fas fa-search-dollar topics__icon"></i></a></li>
-          <li class="topics__item">
-            <a href="" class="topics__link">Lý tưởng sống <i class="fas fa-search-dollar topics__icon"></i></a></li>
-          <li class="topics__item">
-            <a href="" class="topics__link">Lý tưởng sống <i class="fas fa-search-dollar topics__icon"></i></a></li>
-          <li class="topics__item">
-            <a href="" class="topics__link">Lý tưởng sống <i class="fas fa-search-dollar topics__icon"></i></a></li>
-          <li class="topics__item">
-            <a href="" class="topics__link">Lý tưởng sống <i class="fas fa-search-dollar topics__icon"></i></a></li>
+          <li class="topics__item" *ngFor="let topic of topics">
+            <a [href]="topic.link" class="topics__link">
+              {{topic.title}}
+              <i class="fas fa-search-dollar topics__icon"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

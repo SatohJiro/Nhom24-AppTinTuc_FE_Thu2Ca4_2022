@@ -10,6 +10,7 @@ import {fromEvent, throttleTime} from "rxjs";
 })
 export class HeaderComponent implements OnInit,OnChanges {
   enableSticky:boolean = false;
+  topics:any[] = [];
   @Input() isMenuTop = true;
   public datas = [
     {title:'',path:"",desc:""},
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit,OnChanges {
   constructor(@Inject(DOCUMENT) document: Document, private serverService: ServerService) {
   }
   ngOnInit(): void {
+   this.topics = this.serverService.getTopics();
+
     fromEvent(window,"scroll").pipe(throttleTime(150)).subscribe((event)=> {
       // @ts-ignore
       const header = document.querySelector(".header__menu");
